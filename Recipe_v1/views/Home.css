@@ -1,0 +1,27 @@
+body{
+	background: #0b3b1b;
+}
+.jumbotron{
+	background: url("https://images.unsplash.com/photo-1509358271058-acd22cc93898?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60") center center / cover no-repeat;
+	background-size: cover;
+	margin-top: 60px;
+	color: white;
+}
+.navbar{
+	background: #0e662c;
+	padding-bottom: 2px;
+	color: white;
+}
+.initials{
+	margin-left: 5px;
+	color: white;
+	font-family: "Roboto";
+	font-size: 15px;
+}
+div a:hover {
+  color: yellow;
+}
+p
+{
+	color: white;
+}
