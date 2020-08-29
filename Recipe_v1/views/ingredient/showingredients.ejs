@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+	<div class="jumbotron p-8">
+		<h1><%=ingredient[0].Name%></h1>
+	</div>
+	
+	<div class="container row" >
+		<div class="col-md-8">
+			<h3><p>Uses</p><h3>
+			<h5><p><%= ingredient[0].Uses %></p></h5>
+		</div>
+		<div class="thumbnail text-right" >
+		    <img src="<%= ingredient[0].Imgurl %>" width="300" height="200">
+		    <h4><p class="text-right"><%= ingredient[0].Name %></p></h4>
+		</div>
+	</div>
+	<div class="container row">
+		<div class="col-md-8">
+			<h3><p>Description</p><h3>
+			<h5><p><%= ingredient[0].Details %></p></h5>
+		</div>
+	</div>
+
+<%- include("../partials/footer") %>

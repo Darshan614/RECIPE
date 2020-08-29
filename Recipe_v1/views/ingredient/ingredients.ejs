@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+	<div class="jumbotron p-8">
+		<h1>Ingredients / Herbs</h1>
+		<p>Some famous ingredients used in ayurvedic medicines.</p>
+	</div>
+	<div class="row text-center">
+		<%ingredients.forEach(function(ingredient){%>
+			<div class="col-sm-12 col-md-6 col-lg-4" >
+	                <div class="thumbnail">
+	                   <img src="<%= ingredient.Imgurl %>" width="300" height="200">
+	                   
+	                       <h4><p><%= ingredient.Name %></p></h4>
+	                   
+	                   <p>
+	                       <a href="/ingredients/<%=ingredient.Id%>" class="btn btn-primary">More Info</a>
+	                   </p>
+	                </div>
+	        </div>
+		<%})%>
+	</div>
+
+<%- include("../partials/footer") %>

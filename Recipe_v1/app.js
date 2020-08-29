@@ -13,22 +13,17 @@ var config = {
     "enableArithAbort": true
     }
 };
+app.use(express.static(__dirname));
 sql.connect(config)
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 app.use(bodyParser.json());
 
-var recipes = [
-	{name:"Professor",title:"Kadha",description:"1.Mushkil hai"},
-	{name:"Professor",title:"Kadha",description:"1.Mushkil hai"},
-	{name:"Professor",title:"Kadha",description:"1.Mushkil hai"},
-	{name:"Professor",title:"Kadha",description:"1.Mushkil hai"}
-	]
-	
 // app.use(express.static(__dirname + "/public"));
 //next line is used to include stylesheets without this line express does not 
 //include css files
-app.use(express.static(__dirname));
+
+
 app.get("/",function(req,res){
 	var request = new sql.Request();
 	request.query('select * from healthproblems', function (err, result) {
@@ -37,14 +32,24 @@ app.get("/",function(req,res){
         });
 	//res.render("home");
 })
-
-app.get("/problems/:problem/",function(req,res){
-	var problem1=req.params.problem;
+app.get("/ingredients",function(req,res){
+	//console.log("inside ingredients");
 	var request = new sql.Request();
-	request.query('select * from problemdetails', function (err, result) {
+	request.query('select * from ingredients', function (err, result) {
+            if (err) console.log(err)
+			res.render("ingredient/ingredients",{ingredients:result.recordset})
+        });
+	//res.render("home");
+})
+
+app.get("/ingredients/:Id",function(req,res){
+	var id = req.params.Id;
+	var request = new sql.Request();
+	//console.log("id route");
+	request.query('select * from ingredients where id='+id, function (err, result) {
             
             if (err) console.log(err) 
-            res.render("show",{problem:result.recordset});
+            res.render("ingredient/showingredients",{ingredient:result.recordset});
         });
 });
 app.get("/coughRecipe",function(req,res){
